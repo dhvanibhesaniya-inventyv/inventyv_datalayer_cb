@@ -1,0 +1,49 @@
+[package]
+edition = "2021"
+name = "inventyv-datalayer_cb"
+version = "0.0.0"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+# Default enable napi4 feature, see https://nodejs.org/api/n-api.html#node-api-version-matrix
+napi = { version = "2.12.2", default-features = true, features = ["napi4","async","tokio_rt","serde-json","napi1"] }
+napi-derive = "2.12.2"
+# tikv-client = "0.3.0"
+serde_json = "1.0.1"
+serde = { version = "1", features = ["derive"] }
+once_cell = "1.18.0"
+log = "0.4.17"   # for logger
+log4rs = { version ="1.0.0", features = ["gzip"] }
+config = "0.13.2"   #for config
+lazy_static = "1.4"  #static declaration
+uuid = { version = "1.9.1", features = ["v4"] }
+async-recursion = "1.0.5"
+async-std = "1.12.0"
+# minio = "0.1.0"
+dotenv = "0.15"
+couchbase = "1.0.0-alpha.4"
+tokio = { version = "1.0", features = ["full"] }
+lodash_rust = "0.1.2"
+chrono = "0.4"
+# rdkafka = { version = "0.34.0", features = ["cmake-build","ssl"] }
+
+
+
+
+
+# aws-config = { version = "1.5.5", features = ["behavior-version-latest"] }
+# aws-credential-types = { version = "1.1.8", features = ["hardcoded-credentials"] }
+# aws-sdk-s3 = "1.47.0"
+
+[target.'cfg(unix)'.dependencies]
+openssl-sys = { version = "0.9.102", features = ["vendored"] }
+
+
+[build-dependencies]
+napi-build = "2.0.1"
+
+[profile.release]
+lto = true
+strip = "symbols"
