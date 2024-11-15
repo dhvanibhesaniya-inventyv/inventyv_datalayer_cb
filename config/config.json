@@ -1,0 +1,43 @@
+{
+  "env": "production",
+  "port": 4000,
+  "logger": {
+    "exceptionLogFileName": "exceptions.log",
+    "httpErrorLogFileName": "httpError.log",
+    "httpLogFileName": "http.log",
+    "httpLogformat": "",
+    "logFileName": "logs.log",
+    "logFilePrefix": "",
+    "logFileSize": 17408,
+    "path": "./logs",
+    "all_logs_common_file_path": "logs/step/All-Logs.log",
+    "roller_base_start": 1,
+    "roller_max_count": 999,
+    "roller_filepath_pattern": "logs/LogsFiles/All-Logs_{}.log"
+  },
+  "minio": {
+    "endpoint": {
+      "url": "minio.ns-data.svc.cluster.local"
+    },
+    "accesskey": "developer",
+    "secretkey": "0aUZx19KZ3vIQV9v",
+    "cacert": "./ca.crt",
+    "bucketname": "test"
+  },
+  "couchbase": {
+    "connectionurl": "couchbase://192.168.26.64,192.168.26.65,192.168.26.66",
+    "username": "developer",
+    "password": "Development@2024",
+    "userbucket": "CB_DEMO"
+  },
+  "kafka": {
+    "bootstrapserver": "192.168.26.64:30940",
+    "consumergroup": "dr_tikvtoes_sum",
+    "consumertopic": "drt_sum",
+    "connectTimeout": "10000",
+    "autoCommit": "true",
+    "autoOffsetReset": "earliest",
+    "crmupdater_topic": "CRMUpdater"
+  }
+  
+}
