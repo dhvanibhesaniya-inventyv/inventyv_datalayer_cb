@@ -1,0 +1,109 @@
+error : 
+
+dhvanibhesaniya@inventyv:~/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing$ node test.js
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/index.js:308
+    throw loadError
+    ^
+
+Error: libcouchbase.so.6: cannot open shared object file: No such file or directory
+    at Module._extensions..node (node:internal/modules/cjs/loader:1586:18)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/index.js:188:31)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Module._load (node:internal/modules/cjs/loader:1104:12) {
+  code: 'ERR_DLOPEN_FAILED'
+}
+
+Node.js v20.18.0
+dhvanibhesaniya@inventyv:~/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing$ node test.js
+
+
+
+
+
+
+
+
+
+
+solution tried : 
+
+
+
+
+dhvanibhesaniya@inventyv:~$ locate libcouchbase.so.6
+Command 'locate' not found, but can be installed with:
+sudo apt install plocate
+dhvanibhesaniya@inventyv:~$ sudo apt install plocate
+[sudo] password for dhvanibhesaniya: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  plocate
+0 upgraded, 1 newly installed, 0 to remove and 6 not upgraded.
+Need to get 129 kB of archives.
+After this operation, 512 kB of additional disk space will be used.
+Get:1 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 plocate amd64 1.1.15-1ubuntu2 [129 kB]
+Fetched 129 kB in 1s (150 kB/s)  
+Selecting previously unselected package plocate.
+(Reading database ... 206596 files and directories currently installed.)
+Preparing to unpack .../plocate_1.1.15-1ubuntu2_amd64.deb ...
+Unpacking plocate (1.1.15-1ubuntu2) ...
+Setting up plocate (1.1.15-1ubuntu2) ...
+update-alternatives: using /usr/bin/plocate to provide /usr/bin/locate (locate) in auto mode
+Adding group `plocate' (GID 138) ...
+Done.
+Initializing plocate database; this may take some time... done
+Created symlink /etc/systemd/system/timers.target.wants/plocate-updatedb.timer →
+ /lib/systemd/system/plocate-updatedb.timer.
+Processing triggers for man-db (2.10.2-1) ...
+dhvanibhesaniya@inventyv:~$ plocate libcouchbase.so.6
+/home/dhvanibhesaniya/.local/share/Trash/files/libcouchbase.so.6
+/home/dhvanibhesaniya/.local/share/Trash/files/target/debug/build/couchbase-sys-511033b9e7c87bd8/out/build/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/.local/share/Trash/files/target/debug/build/couchbase-sys-511033b9e7c87bd8/out/build/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/.local/share/Trash/files/target/debug/build/couchbase-sys-511033b9e7c87bd8/out/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/.local/share/Trash/files/target/debug/build/couchbase-sys-511033b9e7c87bd8/out/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/.local/share/Trash/files/target/debug/build/couchbase-sys-ecea2bb706f9a15b/out/build/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/.local/share/Trash/files/target/debug/build/couchbase-sys-ecea2bb706f9a15b/out/build/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/.local/share/Trash/files/target/debug/build/couchbase-sys-ecea2bb706f9a15b/out/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/.local/share/Trash/files/target/debug/build/couchbase-sys-ecea2bb706f9a15b/out/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/.local/share/Trash/info/libcouchbase.so.6.trashinfo
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/Inventyv-Datalayer/target/debug/build/couchbase-sys-511033b9e7c87bd8/out/build/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/Inventyv-Datalayer/target/debug/build/couchbase-sys-511033b9e7c87bd8/out/build/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/Inventyv-Datalayer/target/debug/build/couchbase-sys-511033b9e7c87bd8/out/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/Inventyv-Datalayer/target/debug/build/couchbase-sys-511033b9e7c87bd8/out/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/Inventyv-Datalayer/target/debug/build/couchbase-sys-ecea2bb706f9a15b/out/build/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/Inventyv-Datalayer/target/debug/build/couchbase-sys-ecea2bb706f9a15b/out/build/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/Inventyv-Datalayer/target/debug/build/couchbase-sys-ecea2bb706f9a15b/out/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/Inventyv-Datalayer/target/debug/build/couchbase-sys-ecea2bb706f9a15b/out/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/Inventyv-Datalayer/target/release/build/couchbase-sys-12348aa3af09e013/out/build/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/Inventyv-Datalayer/target/release/build/couchbase-sys-12348aa3af09e013/out/build/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/Inventyv-Datalayer/target/release/build/couchbase-sys-12348aa3af09e013/out/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/Inventyv-Datalayer/target/release/build/couchbase-sys-12348aa3af09e013/out/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/libcouchbase.so.6
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/target/debug/build/couchbase-sys-511033b9e7c87bd8/out/build/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/target/debug/build/couchbase-sys-511033b9e7c87bd8/out/build/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/target/debug/build/couchbase-sys-511033b9e7c87bd8/out/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/target/debug/build/couchbase-sys-511033b9e7c87bd8/out/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/target/debug/build/couchbase-sys-ecea2bb706f9a15b/out/build/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/target/debug/build/couchbase-sys-ecea2bb706f9a15b/out/build/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/target/debug/build/couchbase-sys-ecea2bb706f9a15b/out/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/target/debug/build/couchbase-sys-ecea2bb706f9a15b/out/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/target/release/build/couchbase-sys-12348aa3af09e013/out/build/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/target/release/build/couchbase-sys-12348aa3af09e013/out/build/lib/libcouchbase.so.6.0.4
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/target/release/build/couchbase-sys-12348aa3af09e013/out/lib/libcouchbase.so.6
+/home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/target/release/build/couchbase-sys-12348aa3af09e013/out/lib/libcouchbase.so.6.0.4
+dhvanibhesaniya@inventyv:~$ sudo apt install libcouchbase-dev
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package libcouchbase-dev
+dhvanibhesaniya@inventyv:~$ sudo cp /home/dhvanibhesaniya/inventyv_work/tikv_datalayer_napi/Inventyv-Datalayer/testing/target/release/build/couchbase-sys-12348aa3af09e013/out/lib/libcouchbase.so.6 /usr/lib/
+dhvanibhesaniya@inventyv:~$ sudo ldconfig
+dhvanibhesaniya@inventyv:~$ 
